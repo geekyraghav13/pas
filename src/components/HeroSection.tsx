@@ -5,17 +5,13 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-      {/* Mountain background image - Dark overlay REMOVED */}
+      {/* Mountain background image */}
       <div className="absolute inset-0" style={{
         backgroundImage: `url(${heroMountains})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center bottom',
         backgroundRepeat: 'no-repeat'
       }}></div>
-
-      {/* The dark overlay div has been REMOVED:
-      <div className="absolute inset-0 bg-black/75"></div>
-      */}
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20 lg:py-32">
@@ -27,6 +23,10 @@ const HeroSection = () => {
               Want to Acquire a Business?{" "}
               <span className="block">We'll Fund You!</span>
             </h1>
+
+            <p className="text-lg leading-relaxed text-slate-300 font-semibold pt-4">
+              At Passet, We back experienced operators with the capital, playbooks, and expert support needed to acquire and grow subscription internet businesses.
+            </p>
 
             {/* Updated: Button with new style */}
             <button
@@ -43,15 +43,12 @@ const HeroSection = () => {
           </div>
 
           {/* Right side - Stats and description */}
-          <div className="text-center lg:text-left space-y-8">
-            <p className="text-lg leading-relaxed text-slate-300">
-              At Passet, We back experienced operators with the capital, playbooks, and expert support needed to acquire and grow subscription internet businesses.
-            </p>
-            <div>
+          <div className="text-center lg:text-left">
+            <div className="lg:pt-16 lg:pl-16">
               <div className="text-6xl lg:text-8xl font-bold text-white">
                 11M+
               </div>
-              <p className="text-lg text-slate-300 mt-2">
+              <p className="text-lg text-slate-300 mt-2 font-semibold">
                 Our founders have scaled and sold mobile apps with 10M+ users.
               </p>
             </div>
