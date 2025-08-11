@@ -27,15 +27,17 @@ const Header: React.FC = () => {
           </Link>
         </div>
 
-        {/* signUp Buton right side */}
+        {/* signUp Buton right side -- MODIFIED LINK BELOW */}
         <a
           href="/signup"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white/90 px-5 py-2.5 rounded-full text-sm transition-colors"
+          // CHANGE: Replaced zinc background with purple gradient and updated text style
+          className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-700 text-white font-bold px-5 py-2.5 rounded-full text-sm"
         >
           <span>Sign up as an Operator</span>
-          <ArrowRight className="w-4 h-4 text-purple-400" />
+          {/* CHANGE: Updated arrow color for better contrast */}
+          <ArrowRight className="w-4 h-4 text-white" />
         </a>
       </div>
     </header>

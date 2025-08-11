@@ -18,6 +18,7 @@ const ContactForm = () => {
     phone: "",
     message: ""
   });
+  const [isAgreed, setIsAgreed] = useState(false); // 1. ADDED: State for the checkbox
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {
     toast
@@ -53,6 +54,11 @@ const ContactForm = () => {
     
     if (formData.message && formData.message.length > MAX_MESSAGE_LENGTH) {
       errors.push(`Message must be ${MAX_MESSAGE_LENGTH} characters or less`);
+    }
+
+    // 4. ADDED: Validation for the checkbox
+    if (!isAgreed) {
+        errors.push("You must agree to the terms and privacy policy");
     }
     
     return { isValid: errors.length === 0, errors };
@@ -133,7 +139,7 @@ const ContactForm = () => {
                 <span className="block">We'll Fund You!</span>
               </h2>
               <p className="text-xl text-white/90 leading-relaxed">
-                At Passet, We back experienced operators with the capital, playbooks, and expert support needed to acquire and grow subscription-based mobile apps.
+                At Passet, We back experienced operators with the capital, playbooks, and expert support needed to acquire and grow subscription internet businesses.
               </p>
             </div>
             
@@ -146,7 +152,7 @@ const ContactForm = () => {
                   <span className="block">We'll Fund You!</span>
                 </h2>
                 <p className="text-lg text-white/90 leading-relaxed">
-                  At Passet, We back experienced operators with the capital, playbooks, and expert support needed to acquire and grow subscription-based mobile apps.
+                  At Passet, We back experienced operators with the capital, playbooks, and expert support needed to acquire and grow subscription internet businesses.
                 </p>
               </div>
               
@@ -211,8 +217,30 @@ const ContactForm = () => {
                     {formData.message.length}/{MAX_MESSAGE_LENGTH}
                   </div>
                 </div>
+
+                {/* 2. ADDED: Checkbox and Label */}
+                <div className="flex items-start space-x-3 pt-2">
+                    <input
+                        type="checkbox"
+                        id="terms-checkbox"
+                        checked={isAgreed}
+                        onChange={(e) => setIsAgreed(e.target.checked)}
+                        className="mt-1 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 cursor-pointer"
+                    />
+                        <label htmlFor="terms-checkbox" className="text-sm text-white/90 select-none cursor-pointer">
+                  I agree to the{' '}
+                  <a href="/terms" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">
+                    Terms
+                  </a>
+                  ,{' '}
+                  <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">
+                    Privacy Policy
+                  </a>s
+                  {' & Receiving E-Mail updates'}
+                </label>
+                </div>
                 
-                <Button type="submit" variant="cta" size="lg" className="w-full h-14 text-lg font-semibold group" disabled={isSubmitting}>
+                <Button type="submit" variant="cta" size="lg" className="w-full h-14 text-lg font-semibold group" disabled={isSubmitting || !isAgreed}> {/* 3. MODIFIED: disabled logic */}
                   {isSubmitting ? "SUBMITTING..." : "SET UP A MEETING NOW"}
                   {!isSubmitting && <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />

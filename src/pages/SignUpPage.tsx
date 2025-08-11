@@ -107,7 +107,7 @@ const SignUpPage = () => {
               <div className="flex items-center">
                 <input id="terms" name="terms" checked={formData.terms} onChange={handleChange} type="checkbox" className="h-4 w-4 text-purple-600 border-gray-300 rounded" />
                 <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                  I agree to the <a href="#" className="font-medium text-purple-600 hover:underline">Terms</a> and <a href="#" className="font-medium text-purple-600 hover:underline">Privacy policy</a>
+                  I agree to the <a href="#" className="font-medium text-purple-600 hover:underline">Terms</a> , <a href="#" className="font-medium text-purple-600 hover:underline">Privacy policy & Recieving E-Mail updates </a>
                 </label>
               </div>
               <button type="submit" disabled={status === 'submitting'} className="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-4 rounded-lg disabled:bg-purple-400">
