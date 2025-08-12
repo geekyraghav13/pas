@@ -43,5 +43,8 @@ enable_manual_linking = false
 [functions.submit-contact]
 verify_jwt = false
 
+[functions.submit-operator-form]
+verify_jwt = false
+
 [edge_runtime]
 enabled = true
